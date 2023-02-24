@@ -1,6 +1,6 @@
 # jwt
-jwt task
+jwt task(REST API)
 
-* Tip : 
+** Tip : 
 - home route is test authentication!
 - user route is main route this task!
