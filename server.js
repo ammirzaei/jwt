@@ -12,6 +12,9 @@ const errorHandler = require('./middlewares/errorHandler');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// use helmet for topping sequrity
+app.use(helmet());
+
 // config dotenv 
 dotEnv.config({ path: './config/config.env' });
 
@@ -20,9 +23,6 @@ mongoConnect();
 
 // set routes
 setRoutes(app);
-
-// use helmet for topping sequrity
-app.use(helmet());
 
 // error Handler
 app.use(errorHandler);

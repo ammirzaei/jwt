@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const { registerSchema } = require('./schema/userSchema');
+const { registerSchema, loginSchema } = require('./schema/userSchema');
 
 const userSchema = new mongoose.Schema({
     email: {
@@ -33,6 +33,11 @@ const userSchema = new mongoose.Schema({
 // use register validation on userModel
 userSchema.statics.registerValidation = function (body) {
     return registerSchema.validate(body, { abortEarly: false });
+}
+
+// use login validation on userModel
+userSchema.statics.loginValidation = function (body) {
+    return loginSchema.validate(body, { abortEarly: false });
 }
 
 // hash password when saved data
