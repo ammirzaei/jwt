@@ -1,5 +1,6 @@
 const express = require('express');
 const dotEnv = require('dotenv');
+const helmet = require('helmet');
 
 const app = new express();
 const mongoConnect = require('./config/db');
@@ -20,6 +21,8 @@ mongoConnect();
 // set routes
 setRoutes(app);
 
+// use helmet for topping sequrity
+app.use(helmet());
 
 // error Handler
 app.use(errorHandler);
